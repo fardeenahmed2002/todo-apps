@@ -36,6 +36,7 @@ export const postTodo = async (req, res) => {
 
 export const getAllTodos = async (req, res) => {
     try {
+        // getting user id
         const userId = req.userId
         if (!userId) {
             return res.status(401).json({
@@ -88,14 +89,13 @@ export const updateTodo = async (req, res) => {
             })
         }
 
-
+        // Ownership Check
         if (todo.userId.toString() !== userId) {
             return res.status(403).json({
                 success: false,
                 message: 'You are not allowed to update this todo'
             })
         }
-
 
         todo.title = title ?? todo.title
         todo.description = description ?? todo.description
@@ -137,7 +137,7 @@ export const deleteTodo = async (req, res) => {
             })
         }
 
-
+        // Ownership Check
         if (todo.userId.toString() !== userId) {
             return res.status(403).json({
                 success: false,

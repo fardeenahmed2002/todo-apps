@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema({
         minLength: [4, "Min password length is 4"],
         required: [true, "Password is required"],
     }
-})
+});
 
 const UserModel = mongoose.models.Users || mongoose.model(`Users`, userSchema);
 export default UserModel; 

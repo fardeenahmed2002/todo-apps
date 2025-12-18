@@ -16,7 +16,7 @@ app.use(cors({
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
     origin: process.env.NODE_ENV === 'production'
-        ? 'https://your-vercel-domain.vercel.app'
+        ? 'https://todo-apps-ten-eta.vercel.app'
         : 'http://localhost:5000'
 }));
 app.use(express.json());
